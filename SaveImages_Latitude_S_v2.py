@@ -19,12 +19,12 @@ if not os.path.exists(base_image_folder):
 dataset_folder = os.path.join('q20', 'Day1')
 
 # Define intervals for each file where images are considered "Cloud"
-# Use orbit 1 and orbit 13 for a separated test and not include these in the original training + testing data. 
+
 cloud_intervals = {
-    #'awe_l1r_2024001_00621_q20_v00.nc': [(76, 365)],                    #good
+    'awe_l1r_2024001_00621_q20_v00.nc': [(76, 365)],                    #good
     'awe_l1r_2024001_00622_q20_v00.nc': [(300, 565), (1615, 1745)],     #good
     'awe_l1r_2024001_00623_q20_v00.nc': [(870, 965)],                   #good
-    'awe_l1r_2024001_00624_q20_v00.nc': [(440, 683), (940, 1085)],      #good
+    'awe_l1r_2024001_00624_q20_v00.nc': [(48, 135), (440, 683), (940, 1085)],      #good
     'awe_l1r_2024001_00625_q20_v00.nc': [(75, 350), (436, 620)],        #good
     'awe_l1r_2024001_00626_q20_v00.nc': [(40, 552)],                    #good
     'awe_l1r_2024001_00627_q20_v00.nc': [(0, 65), (132, 442), (472, 555), (1162, 1280), (1640, 1742)],
@@ -33,7 +33,9 @@ cloud_intervals = {
     'awe_l1r_2024001_00630_q20_v00.nc': [(0, 35), (160, 520), (1096, 1188)],
     'awe_l1r_2024001_00631_q20_v00.nc': [(0, 108), (165, 654), (890, 1000), (1110, 1256)],
     'awe_l1r_2024001_00632_q20_v00.nc': [(16, 318), (375, 572), (1260, 1342), (1346, 1448), (1478, 1566)],
-    #'awe_l1r_2024001_00633_q20_v00.nc': [(134, 444), (444, 566), (906, 1085), (1236, 1556), (1612, 1718)],
+    'awe_l1r_2024001_00633_q20_v00.nc': [(134, 444), (444, 566), (906, 1085), (1236, 1556), (1612, 1718)],
+    'awe_l1r_2024001_00634_q20_v00.nc': [],
+    'awe_l1r_2024001_00635_q20_v00.nc': [(0, 95)],
 }
 
 # Define circle parameters for image processing
@@ -116,11 +118,12 @@ for filename, intervals in cloud_intervals.items():
     dataset.close()
     
     process_and_save_images(filename, radiance, intervals, latitudes, longitudes, times)
-
+    
+# For a separated test and not include these in the original training + testing data. 
 # Process the first and last files separately
 special_files = [
-    ('awe_l1r_2024001_00621_q20_v00.nc', special_metadata_file_1, [(76, 365)]),
-    ('awe_l1r_2024001_00633_q20_v00.nc', special_metadata_file_13, [(134, 444), (444, 566), (906, 1085), (1236, 1556), (1612, 1718)])
+    ('awe_l1r_2024002_00636_q20_v00.nc', special_metadata_file_1, [(0, 300)]),
+    ('awe_l1r_2024002_00637_q20_v00.nc', special_metadata_file_13, [(182, 336), (35, 436)])
 ]
 for special_filename, special_metadata_file, special_intervals in special_files:
     special_dataset_path = os.path.join(dataset_folder, special_filename)

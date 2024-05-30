@@ -161,4 +161,5 @@ cython_debug/
 
 # AWE Data
 /q20
-
+/ImageDataMay30
+/SeparatedImageDataMay30

@@ -13,10 +13,10 @@ import cv2
 import os
 
 # Define the path to the folder where the dataset is located
-dataset_folder = os.path.join('q20', 'Day1')
+dataset_folder = os.path.join('q20', 'Day2')
 
 # Define the filename of the dataset
-dataset_filename = 'awe_l1r_2024001_00621_q20_v00.nc'
+dataset_filename = 'awe_l1r_2024002_00647_q20_v00.nc'
 
 # Combine the folder path and filename to get the full path to the dataset
 dataset_path = os.path.join(dataset_folder, dataset_filename)
@@ -63,7 +63,7 @@ slider = Slider(ax_slider, 'Time Step', 0, radiance.shape[0]-1, valinit=current_
 
 # Create the range slider for vmin and vmax on the bottom right
 ax_range_slider = plt.axes([0.55, 0.05, 0.35, 0.03], facecolor='lightgoldenrodyellow')
-range_slider = RangeSlider(ax_range_slider, 'vmin - vmax', 0, 24, valinit=(vmin_default, vmax_default))
+range_slider = RangeSlider(ax_range_slider, 'vmin - vmax', 0, 28, valinit=(vmin_default, vmax_default))
 
 colorbar = None  # To keep track of the colorbar
 
@@ -116,7 +116,7 @@ def update_plot(time_step):
     radiance_inside_flat = radiance_inside_circle.flatten()
     radiance_inside_flat = radiance_inside_flat[~np.isnan(radiance_inside_flat)]  # Remove NaN values for histogram
     axs[1].clear()
-    axs[1].hist(radiance_inside_flat, range=(0, 24), bins=50, color='blue', edgecolor='black')
+    axs[1].hist(radiance_inside_flat, range=(0, 28), bins=50, color='blue', edgecolor='black')
     axs[1].set_title(f'Histogram of Radiance at Time Step {time_step} (Inside Circle)')
     axs[1].set_xlabel('Radiance Value')
     axs[1].set_ylabel('Frequency')
