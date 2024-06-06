@@ -117,7 +117,7 @@ for filename, intervals in cloud_intervals.items():
 # Process separated files in 'Day2'
 separated_intervals = {
     'awe_l1r_2024002_00636_q20_v00.nc': [(0, 300)],
-    'awe_l1r_2024002_00637_q20_v00.nc': [(182, 336), (35, 436)]
+    'awe_l1r_2024002_00637_q20_v00.nc': [(182, 336), (352, 436)]
 }
 
 for separated_filename, intervals in separated_intervals.items():

@@ -163,3 +163,8 @@ cython_debug/
 /q20
 /ImageDataMay30
 /SeparatedImageDataMay30
+/models
+/logs
+*.png
+*.h5
+best_svm_model.joblib

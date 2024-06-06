@@ -1,0 +1,2 @@
+Model,Precision,Recall,Accuracy,Training Time (s)
+ResNet50,0.9058296,0.8211382,0.8730469,5502.329798698425

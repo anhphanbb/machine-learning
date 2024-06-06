@@ -1,0 +1,2 @@
+Best Hyperparameters,Precision,Recall,Accuracy,Elapsed Time (s)
+"{'C': 10, 'gamma': 'scale', 'kernel': 'rbf'}",0.8060344827586207,0.7391304347826086,0.7834146341463415,862.6857500076294
